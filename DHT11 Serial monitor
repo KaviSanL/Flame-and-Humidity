@@ -1,0 +1,30 @@
+#include <DHT.h>
+
+double T, P;
+char status;
+
+DHT dht(D4, DHT11);
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+ 
+   dht.begin();
+
+}
+
+void loop() {
+   float h = dht.readHumidity();
+  float t = dht.readTemperature();
+
+  if (isnan(h) || isnan(t)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+  Serial.print("Temp:");
+  Serial.println(t);
+  Serial.print("Humidity:");
+  Serial.println(h);
+delay(1000);
+}
+
