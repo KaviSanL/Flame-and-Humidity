@@ -1,0 +1,12 @@
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+pinMode(D5,INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+int flame = digitalRead(D5);
+Serial.println(flame);
+delay(1000);
+}
